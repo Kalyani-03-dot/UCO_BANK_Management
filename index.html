@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UCO Bank Management System</title>
+    <style>
+        /* CSS Code */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            background-color: #35424a;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        header img {
+            max-width: 150px; /* Adjust as needed */
+            height: auto;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            padding: 0.5rem 1rem;
+        }
+
+        section {
+            padding: 2rem;
+            margin: 2rem auto;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: #35424a;
+            color: #fff;
+        }
+
+        .search-bar {
+            text-align: center;
+            margin: 20px auto;
+        }
+
+        #searchInput {
+            padding: 5px;
+            width: 250px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        #searchButton {
+            padding: 5px 10px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="logo.png" alt="UCO Bank Logo">
+        <h1>UCO Bank Management System</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">About</a></li>
+        </ul>
+    </nav>
+
+    <section>
+        <form id="login-form">
+            <h2>Login</h2>
+            <label for="username">Username:</label>
+            <input type="text" id="username" required><br><br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" required><br><br>
+            <input type="submit" value="Login">
+        </form>
+    </section>
+
+    <section class="search-bar">
+        <input type="text" id="searchInput" placeholder="Search...">
+        <button id="searchButton">Search</button>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 UCO Bank. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // JavaScript Code
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            alert(`Logged in as ${username}`);
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const searchButton = document.getElementById("searchButton");
+
+            searchButton.addEventListener("click", function () {
+                const searchTerm = document.getElementById("searchInput").value;
+                performSearch(searchTerm);
+            });
+
+            function performSearch(term) {
+                alert("You searched for: " + term);
+            }
+        });
+    </script>
+
+</body>
+</html>
