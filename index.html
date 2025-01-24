@@ -35,11 +35,17 @@
             margin-top: 1rem;
         }
 
+        
+        nav a:hover {
+            background-color: #fff;
+            color: #35424a;
+        }
         nav a {
             text-decoration: none;
             color: #fff;
             padding: 0.5rem 1rem;
         }
+
 
         section {
             padding: 2rem;
@@ -86,12 +92,13 @@
 
     <nav>
         <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Contact</a></li>
-            <li><a href="#">About</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="about.html">About</a></li>
         </ul>
     </nav>
+    
 
     <section>
         <form id="login-form">
@@ -104,10 +111,38 @@
         </form>
     </section>
 
+    <section>
+        <form id="register-form">
+            <h2>Register</h2>
+            <label for="reg-username">Username:</label>
+            <input type="text" id="reg-username" required><br><br>
+            <label for="reg-password">Password:</label>
+            <input type="password" id="reg-password" required><br><br>
+            <label for="reg-confirm-password">Confirm Password:</label>
+            <input type="password" id="reg-confirm-password" required><br><br>
+            <input type="submit" value="Register">
+        </form>
+    </section>
+
+    <section>
+        <h2>Transactions</h2>
+        <label for="accountNumber">Account Number:</label>
+        <input type="text" id="accountNumber"><br><br>
+        <label for="amount">Amount:</label>
+        <input type="number" id="amount"><br><br>
+        <button onclick="displayBalance(document.getElementById('accountNumber').value)">Check Balance</button>
+        <button onclick="deposit(document.getElementById('accountNumber').value, parseFloat(document.getElementById('amount').value))">Deposit</button>
+        <button onclick="withdraw(document.getElementById('accountNumber').value, parseFloat(document.getElementById('amount').value))">Withdraw</button>
+    </section>
+    
+    
+
     <section class="search-bar">
         <input type="text" id="searchInput" placeholder="Search...">
         <button id="searchButton">Search</button>
     </section>
+    <div id="message-box" style="color: red;"></div>
+
 
     <footer>
         <p>&copy; 2024 UCO Bank. All Rights Reserved.</p>
@@ -135,7 +170,20 @@
                 alert("You searched for: " + term);
             }
         });
+
+        function showMessage(message, color) {
+        const messageBox = document.getElementById("message-box");
+        messageBox.textContent = message;
+        messageBox.style.color = color || "red";
+}
+
     </script>
+
+    <script src="login.js" defer></script>
+    <script src="transaction.js" defer></script>
+    <script src="register.js" defer></script>
+
+    
 
 </body>
 </html>
